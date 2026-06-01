@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Big5XL – Spécialiste Grandes Tailles Homme | Paris 6e</title>
+  <meta name="description" content="Big5XL, votre boutique spécialiste mode grande taille homme à Paris. Tailles XL à 10XL. Marques Newman, Bugatti, Digel, Camel Active et plus. 12 rue de l'Ancienne-Comédie, Paris 6e, Métro Odéon." />
+  <meta name="keywords" content="grande taille homme, grandes tailles, Paris, boutique, XL, XXL, XXXL, XXXXL, Newman, Bugatti, Digel, mode masculine, Odéon" />
+  <meta property="og:title" content="Big5XL – Spécialiste Grandes Tailles Homme | Paris 6e" />
+  <meta property="og:description" content="Couleur, joie de vivre et originalité ! La mode grande taille masculine vue autrement." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:   #FF6B35;
+      --navy:     #1A1A2E;
+      --teal:     #00C9A7;
+      --yellow:   #FFD700;
+      --cream:    #FFF9F5;
+      --gray:     #F4F4F4;
+      --text:     #2D2D2D;
+      --muted:    #666;
+      --radius:   12px;
+      --shadow:   0 4px 24px rgba(0,0,0,0.10);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.65;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.15;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── NAV ───────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--navy);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .nav-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo span { color: var(--orange); }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.82);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.88rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--orange); }
+
+    .nav-cta {
+      background: var(--orange);
+      color: #fff !important;
+      padding: 8px 18px;
+      border-radius: 50px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: #e55a28 !important; }
+
+    /* hamburger – mobile */
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-toggle span { display: block; width: 26px; height: 3px; background: #fff; border-radius: 2px; }
+
+    /* ── HERO ──────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #2d2d5e 60%, #1a1a2e 100%);
+      color: #fff;
+      padding: 100px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 40%, rgba(255,107,53,0.18) 0%, transparent 70%),
+                  radial-gradient(ellipse at 20% 80%, rgba(0,201,167,0.13) 0%, transparent 60%);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--orange);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      position: relative;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 .accent { color: var(--orange); }
+
+    .hero-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      font-weight: 600;
+      color: var(--teal);
+      margin-bottom: 28px;
+      position: relative;
+      letter-spacing: 0.5px;
+    }
+
+    .hero p {
+      max-width: 640px;
+      margin: 0 auto 40px;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.82);
+      position: relative;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 32px;
+      border-radius: 50px;
+      letter-spacing: 0.3px;
+      transition: transform 0.18s, box-shadow 0.18s;
+      cursor: pointer;
+    }
+
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+    .btn-primary { background: var(--orange); color: #fff; }
+    .btn-outline { border: 2px solid rgba(255,255,255,0.6); color: #fff; }
+    .btn-outline:hover { border-color: #fff; }
+
+    /* sizes strip */
+    .hero-sizes {
+      margin-top: 56px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .size-pill {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 6px 14px;
+      border-radius: 50px;
+    }
+
+    /* ── SECTION BASE ──────────────────────────────── */
+    section { padding: 80px 0; }
+    section:nth-child(even) { background: var(--gray); }
+
+    .section-label {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+
+    .section-lead {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 640px;
+    }
+
+    /* ── ACCUEIL (welcome) ─────────────────────────── */
+    .welcome-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-top: 48px;
+    }
+
+    .welcome-text p {
+      font-size: 1.08rem;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .welcome-english {
+      margin-top: 24px;
+      padding: 16px 20px;
+      background: linear-gradient(135deg, var(--navy), #2d2d5e);
+      color: #fff;
+      border-radius: var(--radius);
+      font-style: italic;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .welcome-english::before { content: '🇬🇧'; font-style: normal; font-size: 1.4rem; }
+
+    .welcome-photo {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      aspect-ratio: 4/5;
+      background: linear-gradient(135deg, #e8e0f5, #c8d8f0);
+      position: relative;
+    }
+
+    .photo-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: #888;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .photo-placeholder svg { opacity: 0.4; }
+
+    /* ── STORY ─────────────────────────────────────── */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-top: 48px;
+    }
+
+    .story-photo {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      aspect-ratio: 4/5;
+      background: linear-gradient(135deg, #f0e8c8, #d0c8a8);
+      position: relative;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .stat-card {
+      background: var(--cream);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-number {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.4rem;
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* ── BRANDS ────────────────────────────────────── */
+    .brands-intro { margin-bottom: 48px; }
+
+    .brands-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 20px;
+    }
+
+    .brand-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 28px 16px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .brand-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.14); }
+
+    .brand-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .brand-name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--navy);
+    }
+
+    .brand-note { font-size: 0.78rem; color: var(--muted); margin-top: 4px; }
+
+    /* ── SERVICES ──────────────────────────────────── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .service-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--orange);
+      transition: transform 0.2s;
+    }
+
+    .service-card:hover { transform: translateY(-4px); }
+
+    .service-icon { font-size: 2.4rem; margin-bottom: 16px; }
+
+    .service-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .service-card p { font-size: 0.9rem; color: var(--muted); }
+
+    /* ── GALLERY ───────────────────────────────────── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .gallery-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: linear-gradient(135deg, #dde8f0, #c0cfe0);
+      position: relative;
+    }
+
+    .gallery-item:first-child {
+      grid-row: span 2;
+      min-height: 400px;
+    }
+
+    .gallery-item:not(:first-child) { min-height: 180px; }
+
+    .gallery-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-align: center;
+      gap: 8px;
+    }
+
+    /* ── CONTACT ───────────────────────────────────── */
+    #contact { background: var(--navy); color: #fff; }
+    #contact .section-title { color: #fff; }
+    #contact .section-label { color: var(--teal); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-top: 48px;
+      align-items: start;
+    }
+
+    .info-block { margin-bottom: 32px; }
+
+    .info-block h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+
+    .info-block p, .info-block a {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+    }
+
+    .info-block a:hover { color: var(--orange); }
+
+    .hours-table { width: 100%; border-collapse: collapse; }
+    .hours-table tr { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .hours-table td { padding: 8px 0; font-size: 0.95rem; color: rgba(255,255,255,0.82); }
+    .hours-table td:last-child { text-align: right; color: var(--teal); font-weight: 600; }
+    .hours-table .closed td:last-child { color: rgba(255,255,255,0.4); }
+
+    .map-embed {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+      height: 340px;
+      background: #1e1e3f;
+    }
+
+    .map-embed iframe { border: none; width: 100%; height: 100%; }
+
+    .social-links {
+      display: flex;
+      gap: 14px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: transform 0.18s, opacity 0.18s;
+    }
+
+    .social-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+    .social-btn.facebook { background: #1877F2; color: #fff; }
+    .social-btn.email { background: var(--orange); color: #fff; }
+    .social-btn.phone { background: var(--teal); color: #fff; }
+
+    /* ── FOOTER ────────────────────────────────────── */
+    footer {
+      background: #0d0d1f;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 0.85rem;
+    }
+
+    footer strong { color: rgba(255,255,255,0.8); }
+
+    /* ── DIVIDER ───────────────────────────────────── */
+    .wave {
+      display: block;
+      width: 100%;
+      line-height: 0;
+    }
+
+    /* ── RESPONSIVE ────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--navy);
+        padding: 20px 24px;
+        gap: 16px;
+      }
+      .welcome-grid, .story-grid, .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+      .story-photo { order: -1; }
+      .stats-row { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item:first-child { grid-column: span 2; min-height: 240px; }
+      section { padding: 60px 0; }
+    }
+
+    @media (max-width: 480px) {
+      .brands-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-row { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item:first-child { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ──────────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Big<span>5XL</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#bienvenue">Bienvenue</a></li>
+      <li><a href="#histoire">Notre histoire</a></li>
+      <li><a href="#marques">Marques</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#boutique">Boutique</a></li>
+      <li><a href="#contact" class="nav-cta">Nous contacter</a></li>
+    </ul>
+    <div class="nav-toggle" id="navToggle" aria-label="Menu" role="button">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">Depuis plus de 30 ans à Paris</div>
+    <h1>La mode <span class="accent">grande taille</span><br>vue autrement</h1>
+    <p class="hero-sub">Couleur · Joie de vivre · Originalité</p>
+    <p>Bienvenue chez Big5XL, le spécialiste de la mode masculine grande taille au cœur du 6e arrondissement de Paris. Des pièces funs, confortables et stylées — taillées pour vous.</p>
+    <div class="hero-actions">
+      <a href="#bienvenue" class="btn btn-primary">Découvrir la boutique</a>
+      <a href="#contact" class="btn btn-outline">Nous trouver</a>
+    </div>
+    <div class="hero-sizes">
+      <span class="size-pill">XL</span>
+      <span class="size-pill">XXL</span>
+      <span class="size-pill">3XL</span>
+      <span class="size-pill">4XL</span>
+      <span class="size-pill">5XL</span>
+      <span class="size-pill">6XL</span>
+      <span class="size-pill">7XL</span>
+      <span class="size-pill">8XL</span>
+      <span class="size-pill">9XL</span>
+      <span class="size-pill">10XL</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── BIENVENUE ───────────────────────────────────────────── -->
+<section id="bienvenue">
+  <div class="container">
+    <p class="section-label">La boutique</p>
+    <h2 class="section-title">Bienvenue chez Big5XL !</h2>
+    <div class="welcome-grid">
+      <div class="welcome-text">
+        <p>Oubliez la grisaille et les coupes sans saveur. Ici, la mode masculine grande taille rime avec <strong>couleur, joie de vivre et originalité !</strong></p>
+        <p>Nous avons sélectionné pour vous des pièces funs et taillées pour votre confort, pour que chaque tenue soit un véritable plaisir à porter.</p>
+        <p>Poussez la porte de notre boutique au 12 rue de l'Ancienne-Comédie, et laissez-vous guider. <strong>Franciane</strong> vous y accueille avec son sourire radieux et une écoute toujours bienveillante pour vous aider à trouver le style qui vous correspond parfaitement.</p>
+        <div class="welcome-english">
+          English spoken! We are always happy to welcome and assist our international customers.
+        </div>
+      </div>
+      <div class="welcome-photo">
+        <div class="photo-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          Photo de la boutique<br><em style="font-weight:400;color:#aaa">À ajouter</em>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HISTOIRE ────────────────────────────────────────────── -->
+<section id="histoire">
+  <div class="container">
+    <p class="section-label">Notre histoire</p>
+    <h2 class="section-title">Une référence parisienne<br>depuis 1965</h2>
+    <div class="story-grid">
+      <div class="story-photo">
+        <div class="photo-placeholder" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:#888;font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:600;text-align:center;padding:20px;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          Photo de la boutique<br><em style="font-weight:400;color:#aaa">À ajouter</em>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:1.08rem;margin-bottom:16px;">Big5XL est née du savoir-faire et de la passion des créateurs de la marque <strong>Newman</strong>, fondée en 1965 dans ce même 6e arrondissement de Paris.</p>
+        <p style="font-size:1.08rem;color:var(--muted);margin-bottom:16px;">Fort de plus de 30 ans d'expérience dans l'habillement masculin grande taille, Big5XL s'est imposé comme <strong>la référence parisienne</strong> pour les hommes qui ne veulent pas sacrifier le style à la taille.</p>
+        <p style="font-size:1.08rem;color:var(--muted);">Notre philosophie ? Que chaque homme, quelle que soit sa carrure, ait accès à des vêtements qui lui ressemblent : beaux, confortables, actuels.</p>
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-number">+30</div>
+            <div class="stat-label">ans d'expérience</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">10</div>
+            <div class="stat-label">marques sélectionnées</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">10XL</div>
+            <div class="stat-label">taille maximum</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MARQUES ─────────────────────────────────────────────── -->
+<section id="marques">
+  <div class="container">
+    <div class="brands-intro">
+      <p class="section-label">Nos marques</p>
+      <h2 class="section-title">Une sélection de qualité<br>du XL au 10XL</h2>
+      <p class="section-lead">Nous distribuons les plus grandes marques spécialisées dans la mode masculine grande taille — toutes choisies pour leur qualité, leur coupe et leur style.</p>
+    </div>
+    <div class="brands-grid">
+      <div class="brand-card">
+        <div class="brand-icon" style="background:#fff3e0;">👔</div>
+        <div class="brand-name">Newman</div>
+        <div class="brand-note">Depuis 1965</div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-icon" style="background:#e8f5e9;">🎽</div>
+        <div class="brand-name">Bugatti</div>
+        <div class="brand-note">Casual &amp; élégant</div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-icon" style="background:#e3f2fd;">🧥</div>
+        <div class="brand-name">Digel</div>
+        <div class="brand-note">Mode formelle</div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-icon" style="background:#fce4ec;">🏔️</div>
+        <div class="brand-name">Camel Active</div>
+        <div class="brand-note">Outdoor &amp; lifestyle</div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-icon" style="background:#f3e5f5;">👕</div>
+        <div class="brand-name">Casamoda</div>
+        <div class="brand-note">Chemises</div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-icon" style="background:#e8eaf6;">🌊</div>
+        <div class="brand-name">Monte-Carlo</div>
+        <div class="brand-note">Style décontracté</div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-icon" style="background:#e0f7fa;">✂️</div>
+        <div class="brand-name">All/Size</div>
+        <div class="brand-note">Grandes tailles +</div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-icon" style="background:#f1f8e9;">🪡</div>
+        <div class="brand-name">Greys</div>
+        <div class="brand-note">Confort &amp; style</div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-icon" style="background:#fff9c4;">🧣</div>
+        <div class="brand-name">S4</div>
+        <div class="brand-note">Sportswear</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ────────────────────────────────────────────── -->
+<section id="services">
+  <div class="container">
+    <p class="section-label">Ce que nous offrons</p>
+    <h2 class="section-title">Des services<br>à votre mesure</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🎯</div>
+        <h3>Conseil personnalisé</h3>
+        <p>Franciane et l'équipe vous accompagnent pour trouver la coupe et le style qui vous correspondent parfaitement.</p>
+      </div>
+      <div class="service-card" style="border-top-color:var(--teal);">
+        <div class="service-icon">✂️</div>
+        <h3>Service retouches</h3>
+        <p>Parce qu'une tenue bien ajustée fait toute la différence, nous proposons un service de retouches sur place.</p>
+      </div>
+      <div class="service-card" style="border-top-color:var(--navy);">
+        <div class="service-icon">📦</div>
+        <h3>Large sélection en boutique</h3>
+        <p>Des centaines de références disponibles immédiatement, du XL au 10XL, dans tous les styles : casual, classique, sport.</p>
+      </div>
+      <div class="service-card" style="border-top-color:var(--yellow);">
+        <div class="service-icon">🌍</div>
+        <h3>English spoken</h3>
+        <p>We warmly welcome our international customers and are happy to assist you in English throughout your visit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GALERIE ─────────────────────────────────────────────── -->
+<section id="boutique">
+  <div class="container">
+    <p class="section-label">La boutique en images</p>
+    <h2 class="section-title">Venez nous rendre visite</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          Photo principale<br>de la boutique
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          Photo 2
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          Photo 3
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          Photo 4
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          Photo 5
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:20px;font-size:0.85rem;color:var(--muted);font-style:italic;">
+      ➤ Pour ajouter vos photos, remplacez les blocs gris par des balises &lt;img src="votre-photo.jpg"&gt;
+    </p>
+  </div>
+</section>
+
+<!-- ── CONTACT ─────────────────────────────────────────────── -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label">Venir nous voir</p>
+    <h2 class="section-title">Infos pratiques</h2>
+    <div class="contact-grid">
+      <div>
+        <div class="info-block">
+          <h3>Adresse</h3>
+          <p>
+            <strong style="color:#fff;font-size:1.1rem;">BIGXXXXXL – Grandes Tailles Homme</strong><br>
+            12 rue de l'Ancienne-Comédie<br>
+            75006 Paris<br>
+            Métro <strong style="color:var(--teal);">Odéon</strong> (lignes 4 &amp; 10)
+          </p>
+        </div>
+
+        <div class="info-block">
+          <h3>Contact</h3>
+          <p>
+            <a href="tel:+33143557754">📞 01 43 55 77 54</a><br>
+            <a href="mailto:newmanbig@orange.fr">✉️ newmanbig@orange.fr</a>
+          </p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/Bigxxxxxl-grandes-tailles-hommes-diffusion-Newman-628813640604944/" target="_blank" rel="noopener" class="social-btn facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Facebook
+            </a>
+            <a href="tel:+33143557754" class="social-btn phone">
+              📞 Appeler
+            </a>
+            <a href="mailto:newmanbig@orange.fr" class="social-btn email">
+              ✉️ Email
+            </a>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <h3>Horaires d'ouverture</h3>
+          <table class="hours-table">
+            <tbody>
+              <tr><td>Lundi</td><td>10h00 – 19h30</td></tr>
+              <tr><td>Mardi</td><td>10h00 – 19h30</td></tr>
+              <tr><td>Mercredi</td><td>10h00 – 19h30</td></tr>
+              <tr><td>Jeudi</td><td>10h00 – 19h30</td></tr>
+              <tr><td>Vendredi</td><td>10h00 – 19h30</td></tr>
+              <tr><td>Samedi</td><td>10h00 – 19h30</td></tr>
+              <tr class="closed"><td>Dimanche</td><td>Fermé</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div>
+        <div class="map-embed">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.1437823088447!2d2.337870576901245!3d48.85174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671f9330da615%3A0x95eb1969a7898a7d!2sBoutique%20BIGXXXXXL%3A%20Grandes%20Tailles%20Homme!5e0!3m2!1sfr!2sfr!4v1700000000000"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localisation de la boutique Big5XL sur Google Maps"
+          ></iframe>
+        </div>
+        <p style="margin-top:14px;font-size:0.88rem;color:rgba(255,255,255,0.5);text-align:center;">
+          Métro Odéon · RER B Saint-Michel · Bus 58, 70, 86, 87
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────────── -->
+<footer>
+  <p>
+    &copy; 2025 <strong>Big5XL – BIGXXXXXL Spécialiste Grandes Tailles Homme</strong><br>
+    12 rue de l'Ancienne-Comédie · 75006 Paris ·
+    <a href="tel:+33143557754" style="color:rgba(255,255,255,0.6);">01 43 55 77 54</a> ·
+    <a href="mailto:newmanbig@orange.fr" style="color:rgba(255,255,255,0.6);">newmanbig@orange.fr</a>
+  </p>
+  <p style="margin-top:10px;">
+    <a href="https://www.facebook.com/Bigxxxxxl-grandes-tailles-hommes-diffusion-Newman-628813640604944/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.4);">Facebook</a>
+    &nbsp;·&nbsp;
+    <a href="https://www.pagesjaunes.fr/pros/03246937" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.4);">Pages Jaunes</a>
+  </p>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const toggle = document.getElementById('navToggle');
+  const links  = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+</script>
+</body>
+</html>
