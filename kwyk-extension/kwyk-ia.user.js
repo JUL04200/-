@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kwyk IA
 // @namespace    kwyk-ia
-// @version      1.2
+// @version      1.3
 // @description  Affiche automatiquement les réponses aux exercices Kwyk
 // @author       Kwyk Assistant
 // @match        https://www.kwyk.fr/*
@@ -13,8 +13,8 @@
 (function () {
   'use strict';
 
-  const STORAGE_KEY = 'kwyk_ia_gemini_key';
-  const GEMINI_URL  = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
+  const STORAGE_KEY = 'kwyk_ia_groq_key';
+  const GROQ_URL    = 'https://api.groq.com/openai/v1/chat/completions';
 
   let lastText     = '';
   let debounceTimer = null;
@@ -22,7 +22,7 @@
   function getApiKey() {
     let key = localStorage.getItem(STORAGE_KEY);
     if (!key) {
-      key = prompt('🧮 Kwyk IA — Colle ta clé API Google Gemini (AIza…) :');
+      key = prompt('🧮 Kwyk IA — Colle ta clé API Groq (gsk_…) :');
       if (key) localStorage.setItem(STORAGE_KEY, key);
     }
     return key;
@@ -88,18 +88,17 @@
     setBody('⏳ Résolution en cours…');
 
     try {
-      const isOAuth = key.startsWith('AQ.') || key.startsWith('ya29.');
-      const url = isOAuth ? GEMINI_URL : `${GEMINI_URL}?key=${key}`;
-      const headers = { 'Content-Type': 'application/json' };
-      if (isOAuth) headers['Authorization'] = `Bearer ${key}`;
-
-      const res = await fetch(url, {
+      const res = await fetch(GROQ_URL, {
         method: 'POST',
-        headers,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${key}`
+        },
         body: JSON.stringify({
-          contents: [{
-            parts: [{
-              text: `Tu es un assistant pour un professeur de mathématiques.
+          model: 'llama-3.1-8b-instant',
+          messages: [{
+            role: 'user',
+            content: `Tu es un assistant pour un professeur de mathématiques.
 Voici le contenu d'une page Kwyk. Identifie l'exercice principal et donne la réponse de façon concise :
 - Nombre seul si c'est numérique (avec unité si besoin)
 - 2-3 lignes max si c'est un développement
@@ -107,14 +106,14 @@ Voici le contenu d'une page Kwyk. Identifie l'exercice principal et donne la ré
 
 Page :
 ${text}`
-            }]
           }],
-          generationConfig: { maxOutputTokens: 350, temperature: 0.1 }
+          max_tokens: 350,
+          temperature: 0.1
         })
       });
 
       const data = await res.json();
-      const answer = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      const answer = data.choices?.[0]?.message?.content;
       setBody(answer || '❌ ' + (data.error?.message ?? 'Réponse vide'));
     } catch (e) {
       setBody('❌ Erreur réseau : ' + e.message);
