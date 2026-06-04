@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Kwyk Assistant",
+  "version": "1.0",
+  "description": "Affiche automatiquement les réponses aux exercices Kwyk",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://www.kwyk.fr/*",
+    "https://new.kwyk.fr/*",
+    "https://api.anthropic.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.kwyk.fr/*", "https://new.kwyk.fr/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Kwyk Assistant"
+  }
+}
