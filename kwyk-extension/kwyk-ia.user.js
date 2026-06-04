@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kwyk IA
 // @namespace    kwyk-ia
-// @version      1.0
+// @version      1.1
 // @description  Affiche automatiquement les réponses aux exercices Kwyk
 // @author       Kwyk Assistant
 // @match        https://www.kwyk.fr/*
@@ -14,7 +14,7 @@
   'use strict';
 
   const STORAGE_KEY = 'kwyk_ia_gemini_key';
-  const GEMINI_URL  = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
+  const GEMINI_URL  = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
 
   let lastText     = '';
   let debounceTimer = null;
