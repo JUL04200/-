@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Kwyk IA" />
+  <title>Kwyk IA</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+    :root {
+      --blue: #4f46e5;
+      --blue-dark: #3730a3;
+      --green: #16a34a;
+      --red: #dc2626;
+      --bg: #f1f5f9;
+      --card: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --radius: 16px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: env(safe-area-inset-top, 20px) 16px env(safe-area-inset-bottom, 20px);
+    }
+
+    header {
+      text-align: center;
+      padding: 24px 0 20px;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--blue);
+      letter-spacing: -0.5px;
+    }
+    header p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 18px;
+      margin-bottom: 14px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+    }
+
+    label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    textarea, input[type="password"] {
+      width: 100%;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 1rem;
+      font-family: inherit;
+      color: var(--text);
+      background: #f8fafc;
+      outline: none;
+      resize: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    textarea:focus, input[type="password"]:focus {
+      border-color: var(--blue);
+      background: #fff;
+    }
+
+    #exercice {
+      min-height: 130px;
+      line-height: 1.5;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: transform 0.12s, opacity 0.12s;
+      -webkit-appearance: none;
+    }
+    .btn:active { transform: scale(0.97); opacity: 0.9; }
+
+    .btn-primary {
+      background: var(--blue);
+      color: #fff;
+    }
+    .btn-small {
+      font-size: 0.85rem;
+      padding: 10px;
+      background: #e0e7ff;
+      color: var(--blue);
+      margin-top: 10px;
+    }
+
+    #result-card { display: none; }
+
+    #status {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+      padding: 6px 0;
+      min-height: 24px;
+    }
+
+    #answer {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--text);
+      white-space: pre-wrap;
+      background: #f0fdf4;
+      border: 1.5px solid #bbf7d0;
+      border-radius: 10px;
+      padding: 14px;
+    }
+
+    #answer.error {
+      background: #fef2f2;
+      border-color: #fecaca;
+      color: var(--red);
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 18px; height: 18px;
+      border: 3px solid rgba(255,255,255,0.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    #config-section { display: none; }
+
+    .key-hint {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🧮 Kwyk IA</h1>
+  <p>Résolution d'exercices instantanée</p>
+</header>
+
+<!-- Clé API (masquée par défaut si déjà configurée) -->
+<div class="card" id="config-section">
+  <label>Clé API Google Gemini</label>
+  <input type="password" id="apiKeyInput" placeholder="AIza..." autocomplete="off" />
+  <p class="key-hint">Ta clé est sauvegardée sur cet appareil uniquement.</p>
+  <button class="btn btn-small" id="saveKey">Enregistrer la clé</button>
+</div>
+
+<!-- Exercice -->
+<div class="card">
+  <label>Colle l'exercice ici</label>
+  <textarea id="exercice" placeholder="Colle le texte de l'exercice Kwyk…"></textarea>
+</div>
+
+<button class="btn btn-primary" id="solveBtn">Résoudre</button>
+<div id="status"></div>
+
+<!-- Résultat -->
+<div class="card" id="result-card">
+  <label>Réponse</label>
+  <div id="answer"></div>
+</div>
+
+<br>
+<button class="btn btn-small" id="configBtn" style="width:100%">⚙️ Modifier la clé API</button>
+
+<script>
+  const API_KEY_STORAGE = 'kwyk_gemini_key';
+  const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
+
+  const configSection = document.getElementById('config-section');
+  const apiKeyInput   = document.getElementById('apiKeyInput');
+  const saveKeyBtn    = document.getElementById('saveKey');
+  const solveBtn      = document.getElementById('solveBtn');
+  const exerciceEl    = document.getElementById('exercice');
+  const resultCard    = document.getElementById('result-card');
+  const answerEl      = document.getElementById('answer');
+  const statusEl      = document.getElementById('status');
+  const configBtn     = document.getElementById('configBtn');
+
+  function getKey() { return localStorage.getItem(API_KEY_STORAGE) || ''; }
+
+  function init() {
+    const key = getKey();
+    if (!key) {
+      configSection.style.display = 'block';
+    }
+  }
+
+  saveKeyBtn.addEventListener('click', () => {
+    const k = apiKeyInput.value.trim();
+    if (!k.startsWith('AIza')) {
+      alert('Clé invalide — elle doit commencer par AIza');
+      return;
+    }
+    localStorage.setItem(API_KEY_STORAGE, k);
+    configSection.style.display = 'none';
+    statusEl.textContent = '✅ Clé enregistrée !';
+    setTimeout(() => { statusEl.textContent = ''; }, 2000);
+  });
+
+  configBtn.addEventListener('click', () => {
+    configSection.style.display = configSection.style.display === 'none' ? 'block' : 'none';
+  });
+
+  solveBtn.addEventListener('click', async () => {
+    const key  = getKey();
+    const text = exerciceEl.value.trim();
+
+    if (!key) {
+      configSection.style.display = 'block';
+      statusEl.textContent = '⚠️ Configure ta clé API d\'abord';
+      return;
+    }
+    if (!text) {
+      statusEl.textContent = '⚠️ Colle un exercice d\'abord';
+      return;
+    }
+
+    solveBtn.innerHTML = '<span class="spinner"></span>Résolution…';
+    solveBtn.disabled = true;
+    statusEl.textContent = '';
+    resultCard.style.display = 'none';
+
+    try {
+      const res = await fetch(`${GEMINI_URL}?key=${key}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{
+            parts: [{
+              text: `Tu es un assistant pour un professeur de mathématiques.
+Voici un exercice Kwyk. Donne la réponse de façon très concise :
+- Si c'est un nombre, donne juste le nombre (et l'unité si nécessaire).
+- Si c'est un développement ou une démonstration, explique en 3 lignes max.
+- Si tu vois plusieurs questions, réponds à chacune brièvement.
+
+Exercice :
+${text}`
+            }]
+          }],
+          generationConfig: { maxOutputTokens: 400, temperature: 0.1 }
+        })
+      });
+
+      const data = await res.json();
+
+      if (data.candidates && data.candidates[0]?.content?.parts[0]?.text) {
+        answerEl.textContent = data.candidates[0].content.parts[0].text;
+        answerEl.className = '';
+      } else if (data.error) {
+        answerEl.textContent = '❌ ' + (data.error.message || 'Erreur API');
+        answerEl.className = 'error';
+      } else {
+        answerEl.textContent = '❌ Réponse inattendue';
+        answerEl.className = 'error';
+      }
+
+      resultCard.style.display = 'block';
+    } catch (err) {
+      answerEl.textContent = '❌ Erreur réseau : ' + err.message;
+      answerEl.className = 'error';
+      resultCard.style.display = 'block';
+    } finally {
+      solveBtn.innerHTML = 'Résoudre';
+      solveBtn.disabled = false;
+    }
+  });
+
+  init();
+</script>
+</body>
+</html>
