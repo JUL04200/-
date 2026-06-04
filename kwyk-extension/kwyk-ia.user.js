@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kwyk IA
 // @namespace    kwyk-ia
-// @version      1.1
+// @version      1.2
 // @description  Affiche automatiquement les réponses aux exercices Kwyk
 // @author       Kwyk Assistant
 // @match        https://www.kwyk.fr/*
@@ -88,9 +88,14 @@
     setBody('⏳ Résolution en cours…');
 
     try {
-      const res = await fetch(`${GEMINI_URL}?key=${key}`, {
+      const isOAuth = key.startsWith('AQ.') || key.startsWith('ya29.');
+      const url = isOAuth ? GEMINI_URL : `${GEMINI_URL}?key=${key}`;
+      const headers = { 'Content-Type': 'application/json' };
+      if (isOAuth) headers['Authorization'] = `Bearer ${key}`;
+
+      const res = await fetch(url, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify({
           contents: [{
             parts: [{
