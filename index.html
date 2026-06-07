@@ -1,594 +1,655 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Big5XL – Spécialiste Grandes Tailles Homme | Paris 6e</title>
-  <meta name="description" content="Big5XL, votre boutique spécialiste mode grande taille homme à Paris. Tailles XL à 10XL. Marques Newman, Bugatti, Digel, Camel Active et plus. 12 rue de l'Ancienne-Comédie, Paris 6e, Métro Odéon." />
-  <meta name="keywords" content="grande taille homme, grandes tailles, Paris, boutique, XL, XXL, XXXL, XXXXL, Newman, Bugatti, Digel, mode masculine, Odéon" />
-  <meta property="og:title" content="Big5XL – Spécialiste Grandes Tailles Homme | Paris 6e" />
-  <meta property="og:description" content="Couleur, joie de vivre et originalité ! La mode grande taille masculine vue autrement." />
-  <meta property="og:type" content="website" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bar Mitsva de Jules — Save the Date</title>
+<meta name="description" content="Invitation à la Bar Mitsva de Jules (Abraham Mordechaï) Arrouasse — mise des téfilines le samedi 5 juin et fête le jeudi 3 juin 2027." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Dancing+Script:wght@500;700&family=Heebo:wght@300;400;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --orange:   #FF6B35;
-      --navy:     #1A1A2E;
-      --teal:     #00C9A7;
-      --yellow:   #FFD700;
-      --cream:    #FFF9F5;
-      --gray:     #F4F4F4;
-      --text:     #2D2D2D;
-      --muted:    #666;
-      --radius:   12px;
-      --shadow:   0 4px 24px rgba(0,0,0,0.10);
-    }
+  :root {
+    --bg-deep:    #2d4540;
+    --green:      #5b7768;
+    --green-dark: #44604f;
+    --sage:       #9fb3a4;
+    --cream:      #fbfaf4;
+    --ink:        #2c3e36;
+    --muted:      #5d6f65;
+    --gold:       #c8a96a;
+    --shadow:     0 18px 50px rgba(20, 35, 30, 0.28);
+  }
 
-    html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; }
 
-    body {
-      font-family: 'Open Sans', sans-serif;
-      color: var(--text);
-      background: var(--cream);
-      line-height: 1.65;
-    }
+  body {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
 
-    h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; line-height: 1.15; }
-    a { color: inherit; text-decoration: none; }
+  body.locked { overflow: hidden; height: 100vh; }
 
-    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 600; line-height: 1.2; }
 
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  .script { font-family: 'Dancing Script', cursive; }
 
-    /* ── NAV ─────────────────────────────────────── */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: var(--navy);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.25);
-    }
+  .hebrew {
+    font-family: 'Heebo', sans-serif;
+    direction: rtl;
+    unicode-bidi: isolate;
+  }
 
-    .nav-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 14px 24px; max-width: 1100px; margin: 0 auto;
-    }
+  .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
 
-    .nav-logo {
-      font-family: 'Montserrat', sans-serif; font-weight: 900;
-      font-size: 1.5rem; color: #fff; letter-spacing: -0.5px;
-    }
-    .nav-logo span { color: var(--orange); }
+  /* ───────────────────────── COVER / ENVELOPE ───────────────────────── */
 
-    .nav-links { display: flex; gap: 28px; list-style: none; }
-    .nav-links a {
-      color: rgba(255,255,255,0.82);
-      font-family: 'Montserrat', sans-serif; font-weight: 600;
-      font-size: 0.88rem; letter-spacing: 0.5px;
-      text-transform: uppercase; transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--orange); }
+  .cover {
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    background: radial-gradient(ellipse at 50% 30%, #34534b 0%, var(--bg-deep) 70%);
+    transition: opacity .9s ease, visibility .9s ease;
+    overflow: hidden;
+  }
+  .cover.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 
-    .nav-cta { background: var(--orange); color: #fff !important; padding: 8px 18px; border-radius: 50px; transition: background 0.2s !important; }
-    .nav-cta:hover { background: #e55a28 !important; }
+  .cover-leaf {
+    position: absolute;
+    opacity: .18;
+    filter: blur(.3px);
+  }
+  .cover-leaf.tl { top: -40px; left: -50px; width: 220px; transform: rotate(-15deg); }
+  .cover-leaf.br { bottom: -60px; right: -60px; width: 260px; transform: rotate(165deg); }
 
-    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .nav-toggle span { display: block; width: 26px; height: 3px; background: #fff; border-radius: 2px; }
+  .cover-eyebrow {
+    color: var(--sage);
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    font-family: 'Heebo', sans-serif;
+    font-size: .72rem;
+    font-weight: 300;
+    z-index: 2;
+  }
 
-    /* ── HERO ────────────────────────────────────── */
-    .hero {
-      position: relative; min-height: 88vh;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center; overflow: hidden;
-    }
+  .envelope {
+    position: relative;
+    width: min(72vw, 300px);
+    aspect-ratio: 5 / 6;
+    cursor: pointer;
+    z-index: 2;
+    -webkit-tap-highlight-color: transparent;
+  }
 
-    .hero-bg {
-      position: absolute; inset: 0; z-index: 0;
-    }
-    .hero-bg img { object-position: center top; }
+  .envelope-letter {
+    position: absolute;
+    left: 50%;
+    bottom: 16%;
+    width: 86%;
+    height: 78%;
+    transform: translate(-50%, 0);
+    background: var(--cream);
+    clip-path: polygon(50% 0%, 100% 30%, 100% 100%, 0 100%, 0 30%);
+    box-shadow: 0 10px 40px rgba(15, 30, 25, .35);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 14%;
+    transition: transform 1.1s cubic-bezier(.22,.7,.2,1), box-shadow .6s ease;
+    z-index: 1;
+  }
 
-    .hero-overlay {
-      position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(
-        160deg,
-        rgba(26,26,46,0.82) 0%,
-        rgba(26,26,46,0.65) 50%,
-        rgba(255,107,53,0.25) 100%
-      );
-    }
+  .envelope-letter .letter-title {
+    font-family: 'Heebo', sans-serif;
+    letter-spacing: .22em;
+    font-size: clamp(.85rem, 2.4vw, 1.05rem);
+    color: var(--green-dark);
+    text-transform: uppercase;
+  }
 
-    .hero-content { position: relative; z-index: 2; color: #fff; padding: 60px 24px; }
+  .envelope-leaves {
+    margin-top: 14px;
+    width: 78%;
+    opacity: .85;
+  }
 
-    .hero-badge {
-      display: inline-block; background: var(--orange); color: #fff;
-      font-family: 'Montserrat', sans-serif; font-weight: 700;
-      font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase;
-      padding: 6px 16px; border-radius: 50px; margin-bottom: 24px;
-    }
+  .envelope-pocket {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, var(--green) 0%, var(--green-dark) 100%);
+    clip-path: polygon(0 28%, 50% 58%, 100% 28%, 100% 100%, 0% 100%);
+    box-shadow: var(--shadow);
+    z-index: 2;
+    transition: transform .8s ease, opacity .8s ease;
+    border-radius: 6px;
+  }
 
-    .hero h1 {
-      font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 900;
-      line-height: 1.05; margin-bottom: 8px;
-      text-shadow: 0 2px 16px rgba(0,0,0,0.4);
-    }
-    .hero h1 .accent { color: var(--orange); }
+  .envelope.open .envelope-letter {
+    transform: translate(-50%, -78%) scale(1.08);
+    box-shadow: 0 30px 70px rgba(10, 20, 18, .4);
+  }
+  .envelope.open .envelope-pocket {
+    opacity: 0;
+    transform: translateY(30px) scale(.97);
+  }
 
-    .hero-sub {
-      font-family: 'Montserrat', sans-serif;
-      font-size: clamp(1rem, 2.5vw, 1.35rem); font-weight: 600;
-      color: var(--teal); margin-bottom: 28px; letter-spacing: 0.5px;
-    }
+  .open-hint {
+    font-family: 'Heebo', sans-serif;
+    color: var(--sage);
+    font-size: .8rem;
+    letter-spacing: .12em;
+    z-index: 2;
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
 
-    .hero p {
-      max-width: 600px; margin: 0 auto 40px;
-      font-size: 1.05rem; color: rgba(255,255,255,0.88);
-    }
+  /* ───────────────────────── HERO / TITLE ───────────────────────── */
 
-    .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 90px 24px;
+    background:
+      radial-gradient(ellipse at 18% 12%, rgba(159,179,164,.35), transparent 45%),
+      radial-gradient(ellipse at 85% 90%, rgba(159,179,164,.3), transparent 45%),
+      var(--cream);
+    position: relative;
+  }
 
-    .btn {
-      display: inline-block; font-family: 'Montserrat', sans-serif;
-      font-weight: 700; font-size: 0.95rem; padding: 14px 32px;
-      border-radius: 50px; letter-spacing: 0.3px;
-      transition: transform 0.18s, box-shadow 0.18s; cursor: pointer;
-    }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.22); }
-    .btn-primary { background: var(--orange); color: #fff; }
-    .btn-outline { border: 2px solid rgba(255,255,255,0.6); color: #fff; }
-    .btn-outline:hover { border-color: #fff; }
+  .hero-eyebrow {
+    font-family: 'Heebo', sans-serif;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    font-size: .78rem;
+    color: var(--green-dark);
+    margin-bottom: 22px;
+  }
 
-    .hero-sizes {
-      margin-top: 48px; display: flex; justify-content: center;
-      gap: 10px; flex-wrap: wrap;
-    }
-    .size-pill {
-      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
-      color: #fff; font-family: 'Montserrat', sans-serif;
-      font-weight: 700; font-size: 0.85rem; padding: 6px 14px; border-radius: 50px;
-    }
+  .hero h1 {
+    font-size: clamp(2.6rem, 9vw, 4.6rem);
+    color: var(--ink);
+  }
+  .hero h1 .script {
+    display: block;
+    font-size: clamp(3.2rem, 11vw, 5.6rem);
+    color: var(--green-dark);
+    margin-top: 6px;
+  }
 
-    /* ── SECTIONS ────────────────────────────────── */
-    section { padding: 80px 0; }
-    section:nth-child(even) { background: var(--gray); }
+  .hero-hebrew {
+    margin-top: 22px;
+    font-size: clamp(1.5rem, 4.6vw, 2.2rem);
+    color: var(--green-dark);
+    letter-spacing: .04em;
+  }
 
-    .section-label {
-      font-family: 'Montserrat', sans-serif; font-weight: 700;
-      font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--orange); margin-bottom: 12px;
-    }
-    .section-title {
-      font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 900;
-      color: var(--navy); margin-bottom: 20px;
-    }
-    .section-lead { font-size: 1.1rem; color: var(--muted); max-width: 640px; }
+  .hero-dates {
+    margin-top: 34px;
+    font-family: 'Heebo', sans-serif;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .hero-dates strong { color: var(--green-dark); }
 
-    /* ── BIENVENUE ───────────────────────────────── */
-    .welcome-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 60px; align-items: center; margin-top: 48px;
-    }
+  .hero-divider {
+    width: 1px;
+    height: 70px;
+    background: linear-gradient(180deg, transparent, var(--green) 50%, transparent);
+    margin: 36px auto 0;
+  }
 
-    .welcome-text p { font-size: 1.08rem; color: var(--text); margin-bottom: 16px; }
+  .hero-sub {
+    margin-top: 26px;
+    max-width: 560px;
+    font-size: clamp(1.05rem, 2.6vw, 1.25rem);
+    color: var(--muted);
+  }
 
-    .welcome-english {
-      margin-top: 24px; padding: 16px 20px;
-      background: linear-gradient(135deg, var(--navy), #2d2d5e);
-      color: #fff; border-radius: var(--radius);
-      font-style: italic; font-size: 0.95rem;
-      display: flex; align-items: center; gap: 12px;
-    }
-    .welcome-english::before { content: '🇬🇧'; font-style: normal; font-size: 1.4rem; }
+  /* ───────────────────────── EVENTS ───────────────────────── */
 
-    .welcome-photo {
-      border-radius: 16px; overflow: hidden;
-      box-shadow: var(--shadow); aspect-ratio: 4/5;
-    }
+  .events {
+    background: var(--bg-deep);
+    color: var(--cream);
+    padding: 100px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .events::before, .events::after {
+    content: "";
+    position: absolute;
+    width: 360px; height: 360px;
+    border: 1px solid rgba(251,250,244,.08);
+    border-radius: 50%;
+  }
+  .events::before { top: -160px; left: -160px; }
+  .events::after { bottom: -180px; right: -150px; }
 
-    /* ── HISTOIRE ────────────────────────────────── */
-    .story-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 60px; align-items: center; margin-top: 48px;
-    }
+  .section-title {
+    text-align: center;
+    font-size: clamp(1.9rem, 5vw, 2.6rem);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .section-kicker {
+    text-align: center;
+    font-family: 'Heebo', sans-serif;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    font-size: .72rem;
+    color: var(--sage);
+    margin-bottom: 70px;
+  }
 
-    .story-photo {
-      border-radius: 16px; overflow: hidden;
-      box-shadow: var(--shadow); aspect-ratio: 4/5;
-    }
+  .event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+    max-width: 880px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
 
-    .stats-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 40px; }
+  .event-card {
+    background: rgba(251, 250, 244, .06);
+    border: 1px solid rgba(251, 250, 244, .16);
+    border-radius: 18px;
+    padding: 40px 32px;
+    text-align: center;
+    backdrop-filter: blur(2px);
+  }
 
-    .stat-card {
-      background: var(--cream); border-radius: var(--radius);
-      padding: 24px; text-align: center; box-shadow: var(--shadow);
-    }
-    .stat-number { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 2.4rem; color: var(--orange); line-height: 1; margin-bottom: 6px; }
-    .stat-label { font-size: 0.85rem; color: var(--muted); font-weight: 600; }
+  .event-card .badge {
+    display: inline-block;
+    font-family: 'Heebo', sans-serif;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    font-size: .68rem;
+    color: var(--bg-deep);
+    background: var(--sage);
+    padding: 6px 16px;
+    border-radius: 30px;
+    margin-bottom: 22px;
+  }
 
-    /* ── SERVICES ────────────────────────────────── */
-    .services-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
-      gap: 24px; margin-top: 48px;
-    }
+  .event-card h3 { font-size: 1.7rem; margin-bottom: 8px; }
 
-    .service-card {
-      background: #fff; border-radius: var(--radius);
-      padding: 32px 24px; box-shadow: var(--shadow);
-      border-top: 4px solid var(--orange);
-      transition: transform 0.2s;
-    }
-    .service-card:hover { transform: translateY(-4px); }
-    .service-icon { font-size: 2.4rem; margin-bottom: 16px; }
-    .service-card h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--navy); margin-bottom: 10px; }
-    .service-card p { font-size: 0.9rem; color: var(--muted); }
+  .event-card .day {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.1rem;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
 
-    /* ── GALERIE ─────────────────────────────────── */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: 260px;
-      gap: 14px;
-      margin-top: 48px;
-    }
+  .event-card .date {
+    font-family: 'Heebo', sans-serif;
+    letter-spacing: .08em;
+    color: var(--cream);
+    opacity: .85;
+    font-size: .98rem;
+    margin-bottom: 16px;
+  }
 
-    .gallery-item {
-      border-radius: var(--radius); overflow: hidden;
-      box-shadow: var(--shadow); cursor: pointer;
-      transition: transform 0.22s, box-shadow 0.22s;
-    }
-    .gallery-item:hover { transform: scale(1.02); box-shadow: 0 8px 32px rgba(0,0,0,0.18); }
+  .event-card p.note {
+    font-size: 1.02rem;
+    color: var(--sage);
+  }
 
-    .gallery-item.tall { grid-row: span 2; }
+  /* ───────────────────────── RSVP ───────────────────────── */
 
-    /* ── CONTACT ─────────────────────────────────── */
-    #contact { background: var(--navy); color: #fff; }
-    #contact .section-title { color: #fff; }
-    #contact .section-label { color: var(--teal); }
+  .rsvp {
+    padding: 110px 24px;
+    background: var(--cream);
+  }
 
-    .contact-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 60px; margin-top: 48px; align-items: start;
-    }
+  .rsvp-card {
+    max-width: 620px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+    padding: clamp(28px, 6vw, 56px);
+    border: 1px solid rgba(91, 119, 104, .15);
+  }
 
-    .info-block { margin-bottom: 32px; }
-    .info-block h3 {
-      font-family: 'Montserrat', sans-serif; font-weight: 700;
-      font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;
-      color: var(--teal); margin-bottom: 10px;
-    }
-    .info-block p, .info-block a { font-size: 1.05rem; color: rgba(255,255,255,0.85); line-height: 1.7; }
-    .info-block a:hover { color: var(--orange); }
+  .rsvp-card h2 { text-align: center; font-size: clamp(1.8rem, 5vw, 2.3rem); }
+  .rsvp-card .lede {
+    text-align: center;
+    color: var(--muted);
+    margin-top: 10px;
+    margin-bottom: 38px;
+    font-size: 1.1rem;
+  }
 
-    .hours-table { width: 100%; border-collapse: collapse; }
-    .hours-table tr { border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .hours-table td { padding: 8px 0; font-size: 0.95rem; color: rgba(255,255,255,0.82); }
-    .hours-table td:last-child { text-align: right; color: var(--teal); font-weight: 600; }
-    .hours-table .closed td:last-child { color: rgba(255,255,255,0.35); }
+  .field { margin-bottom: 22px; }
+  .field label {
+    display: block;
+    font-family: 'Heebo', sans-serif;
+    font-size: .82rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    margin-bottom: 8px;
+  }
+  .field input[type="text"],
+  .field input[type="number"] {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1px solid rgba(91,119,104,.35);
+    border-radius: 10px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.08rem;
+    color: var(--ink);
+    background: var(--cream);
+    transition: border-color .2s ease, box-shadow .2s ease;
+  }
+  .field input:focus {
+    outline: none;
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(91,119,104,.18);
+  }
 
-    .map-embed { border-radius: var(--radius); overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.3); height: 340px; }
-    .map-embed iframe { border: none; width: 100%; height: 100%; }
+  .row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  @media (max-width: 480px) { .row-2 { grid-template-columns: 1fr; } }
 
-    .social-links { display: flex; gap: 14px; margin-top: 24px; flex-wrap: wrap; }
-    .social-btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 10px 20px; border-radius: 50px;
-      font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.85rem;
-      transition: transform 0.18s, opacity 0.18s;
-    }
-    .social-btn:hover { transform: translateY(-2px); opacity: 0.9; }
-    .social-btn.facebook { background: #1877F2; color: #fff; }
-    .social-btn.email { background: var(--orange); color: #fff; }
-    .social-btn.phone { background: var(--teal); color: #fff; }
+  fieldset {
+    border: none;
+    margin-bottom: 22px;
+  }
+  fieldset legend {
+    font-family: 'Heebo', sans-serif;
+    font-size: .82rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    margin-bottom: 10px;
+  }
+  .choice-group {
+    display: flex;
+    gap: 14px;
+  }
+  .choice-group label {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border: 1px solid rgba(91,119,104,.35);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.05rem;
+    color: var(--ink);
+    transition: background .2s ease, border-color .2s ease, color .2s ease;
+  }
+  .choice-group input { accent-color: var(--green-dark); }
+  .choice-group input:checked + span {}
+  .choice-group label:has(input:checked) {
+    background: var(--green-dark);
+    border-color: var(--green-dark);
+    color: var(--cream);
+  }
 
-    /* ── FOOTER ──────────────────────────────────── */
-    footer {
-      background: #0d0d1f; color: rgba(255,255,255,0.5);
-      text-align: center; padding: 32px 24px; font-size: 0.85rem;
-    }
-    footer strong { color: rgba(255,255,255,0.8); }
+  .submit-btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: var(--green-dark);
+    color: var(--cream);
+    font-family: 'Heebo', sans-serif;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    font-size: .9rem;
+    cursor: pointer;
+    transition: background .2s ease, transform .15s ease;
+  }
+  .submit-btn:hover { background: var(--bg-deep); transform: translateY(-1px); }
 
-    /* ── LIGHTBOX ────────────────────────────────── */
-    .lightbox {
-      display: none; position: fixed; inset: 0; z-index: 999;
-      background: rgba(0,0,0,0.92); align-items: center; justify-content: center;
-      padding: 20px;
-    }
-    .lightbox.open { display: flex; }
-    .lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 8px; }
-    .lightbox-close {
-      position: absolute; top: 20px; right: 28px;
-      color: #fff; font-size: 2.5rem; cursor: pointer;
-      font-family: sans-serif; line-height: 1; opacity: 0.8;
-      transition: opacity 0.2s;
-    }
-    .lightbox-close:hover { opacity: 1; }
+  .confirmation {
+    margin-top: 22px;
+    text-align: center;
+    font-family: 'Heebo', sans-serif;
+    color: var(--green-dark);
+    font-size: .98rem;
+    line-height: 1.7;
+  }
+  .confirmation[hidden] { display: none; }
 
-    /* ── RESPONSIVE ──────────────────────────────── */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-toggle { display: flex; }
-      .nav-links.open {
-        display: flex; flex-direction: column;
-        position: absolute; top: 100%; left: 0; right: 0;
-        background: var(--navy); padding: 20px 24px; gap: 16px;
-      }
-      .welcome-grid, .story-grid, .contact-grid { grid-template-columns: 1fr; gap: 36px; }
-      .story-photo { order: -1; }
-      .stats-row { grid-template-columns: repeat(3, 1fr); gap: 12px; }
-      .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 200px; }
-      .gallery-item.tall { grid-row: span 1; }
-      section { padding: 60px 0; }
-      .hero { min-height: 70vh; }
-    }
-    @media (max-width: 480px) {
-      .stats-row { grid-template-columns: 1fr 1fr; }
-      .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
-    }
-  </style>
+  /* ───────────────────────── FOOTER ───────────────────────── */
+
+  footer {
+    background: var(--bg-deep);
+    color: var(--sage);
+    text-align: center;
+    padding: 50px 24px;
+    font-family: 'Heebo', sans-serif;
+    font-size: .85rem;
+    letter-spacing: .08em;
+  }
+  footer .script {
+    display: block;
+    color: var(--cream);
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+</style>
 </head>
-<body>
+<body class="locked">
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <span class="lightbox-close">&times;</span>
-  <img id="lightbox-img" src="" alt="" />
-</div>
+  <!-- ───────────────────────── COVER ENVELOPE ───────────────────────── -->
+  <div class="cover" id="cover">
+    <svg class="cover-leaf tl" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#9fb3a4">
+        <ellipse cx="40" cy="50" rx="22" ry="34" transform="rotate(-30 40 50)"/>
+        <ellipse cx="80" cy="30" rx="20" ry="32" transform="rotate(-10 80 30)"/>
+        <ellipse cx="115" cy="55" rx="18" ry="28" transform="rotate(20 115 55)"/>
+        <ellipse cx="65" cy="90" rx="16" ry="26" transform="rotate(50 65 90)"/>
+      </g>
+    </svg>
+    <svg class="cover-leaf br" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#9fb3a4">
+        <ellipse cx="40" cy="50" rx="22" ry="34" transform="rotate(-30 40 50)"/>
+        <ellipse cx="80" cy="30" rx="20" ry="32" transform="rotate(-10 80 30)"/>
+        <ellipse cx="115" cy="55" rx="18" ry="28" transform="rotate(20 115 55)"/>
+        <ellipse cx="65" cy="90" rx="16" ry="26" transform="rotate(50 65 90)"/>
+      </g>
+    </svg>
 
-<!-- ── NAVIGATION ──────────────────────────────────────────── -->
-<nav>
-  <div class="nav-inner">
-    <a href="#" class="nav-logo">Big<span>5XL</span></a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#bienvenue">Bienvenue</a></li>
-      <li><a href="#histoire">Notre histoire</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#boutique">La boutique</a></li>
-      <li><a href="#contact" class="nav-cta">Nous contacter</a></li>
-    </ul>
-    <div class="nav-toggle" id="navToggle" aria-label="Menu" role="button">
-      <span></span><span></span><span></span>
-    </div>
-  </div>
-</nav>
+    <p class="cover-eyebrow">Vous êtes invité·e</p>
 
-<!-- ── HERO ────────────────────────────────────────────────── -->
-<section class="hero">
-  <div class="hero-bg">
-    <img src="images/facade.jpg" alt="Façade de la boutique Big5XL, 12 rue de l'Ancienne-Comédie Paris" />
-  </div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-badge">Depuis plus de 30 ans à Paris</div>
-    <h1>La mode <span class="accent">grande taille</span><br>vue autrement</h1>
-    <p class="hero-sub">Couleur · Joie de vivre · Originalité</p>
-    <p>Bienvenue chez Big5XL, le spécialiste de la mode masculine grande taille au cœur du 6e arrondissement de Paris. Des pièces funs, confortables et stylées — taillées pour vous.</p>
-    <div class="hero-actions">
-      <a href="#bienvenue" class="btn btn-primary">Découvrir la boutique</a>
-      <a href="#contact" class="btn btn-outline">Nous trouver</a>
-    </div>
-    <div class="hero-sizes">
-      <span class="size-pill">XL</span>
-      <span class="size-pill">XXL</span>
-      <span class="size-pill">3XL</span>
-      <span class="size-pill">4XL</span>
-      <span class="size-pill">5XL</span>
-      <span class="size-pill">6XL</span>
-      <span class="size-pill">7XL</span>
-      <span class="size-pill">8XL</span>
-      <span class="size-pill">9XL</span>
-      <span class="size-pill">10XL</span>
-    </div>
-  </div>
-</section>
-
-<!-- ── BIENVENUE ───────────────────────────────────────────── -->
-<section id="bienvenue">
-  <div class="container">
-    <p class="section-label">La boutique</p>
-    <h2 class="section-title">Bienvenue chez Big5XL !</h2>
-    <div class="welcome-grid">
-      <div class="welcome-text">
-        <p>Oubliez la grisaille et les coupes sans saveur. Ici, la mode masculine grande taille rime avec <strong>couleur, joie de vivre et originalité !</strong></p>
-        <p>Nous avons sélectionné pour vous des pièces funs et taillées pour votre confort, pour que chaque tenue soit un véritable plaisir à porter.</p>
-        <p>Poussez la porte de notre boutique au 12 rue de l'Ancienne-Comédie, et laissez-vous guider. <strong>Franciane</strong> vous y accueille avec son sourire radieux et une écoute toujours bienveillante pour vous aider à trouver le style qui vous correspond parfaitement.</p>
-        <div class="welcome-english">
-          English spoken! We are always happy to welcome and assist our international customers.
-        </div>
+    <div class="envelope" id="envelope">
+      <div class="envelope-letter">
+        <span class="letter-title">Save the date …</span>
+        <svg class="envelope-leaves" viewBox="0 0 200 70" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="#7e9686" stroke-width="1" fill="none" opacity=".8">
+            <path d="M10 35 C 60 5, 140 5, 190 35"/>
+          </g>
+          <g fill="#a9c2b3" opacity=".9">
+            <ellipse cx="35" cy="28" rx="12" ry="7" transform="rotate(-25 35 28)"/>
+            <ellipse cx="60" cy="16" rx="11" ry="6.5" transform="rotate(-15 60 16)"/>
+            <ellipse cx="95" cy="11" rx="11" ry="6.5" transform="rotate(0 95 11)"/>
+            <ellipse cx="130" cy="16" rx="11" ry="6.5" transform="rotate(15 130 16)"/>
+            <ellipse cx="158" cy="28" rx="12" ry="7" transform="rotate(28 158 28)"/>
+          </g>
+        </svg>
       </div>
-      <div class="welcome-photo">
-        <img src="images/interieur-1.jpg" alt="Intérieur de la boutique Big5XL – rayon chemises et pantalons" onclick="openLightbox(this.src, this.alt)" style="cursor:pointer;" />
+      <div class="envelope-pocket"></div>
+    </div>
+
+    <p class="open-hint">touchez l'enveloppe pour l'ouvrir</p>
+  </div>
+
+  <!-- ───────────────────────── HERO ───────────────────────── -->
+  <section class="hero" id="invitation">
+    <p class="hero-eyebrow">Save the date</p>
+    <h1>
+      La Bar Mitsva de
+      <span class="script">Jules</span>
+    </h1>
+    <p class="hero-hebrew hebrew">אברהם מרדכי ארואסה</p>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">
+      C'est avec une immense joie que nous vous invitons à célébrer
+      ce moment si important dans la vie de Jules — un week-end de
+      partage, de tradition et de fête, entouré de ceux qu'il aime.
+    </p>
+    <p class="hero-dates">
+      <strong>Samedi 5 juin 2027</strong> — Mise des téfilines &nbsp;•&nbsp;
+      <strong>Jeudi 3 juin 2027</strong> — Fête
+    </p>
+  </section>
+
+  <!-- ───────────────────────── EVENTS ───────────────────────── -->
+  <section class="events">
+    <p class="section-kicker">Le programme</p>
+    <h2 class="section-title">Deux moments à partager</h2>
+    <div class="event-grid">
+      <div class="event-card">
+        <span class="badge">Office</span>
+        <h3>Mise des téfilines</h3>
+        <p class="day">Samedi</p>
+        <p class="date">5 juin 2027</p>
+        <p class="note">Informations pratiques (lieu &amp; horaire) à venir.</p>
+      </div>
+      <div class="event-card">
+        <span class="badge">Célébration</span>
+        <h3>La fête</h3>
+        <p class="day">Jeudi</p>
+        <p class="date">3 juin 2027</p>
+        <p class="note">Informations pratiques (lieu &amp; horaire) à venir.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ── HISTOIRE ────────────────────────────────────────────── -->
-<section id="histoire">
-  <div class="container">
-    <p class="section-label">Notre histoire</p>
-    <h2 class="section-title">Une référence parisienne<br>depuis 1965</h2>
-    <div class="story-grid">
-      <div class="story-photo">
-        <img src="images/interieur-2.jpg" alt="Intérieur Big5XL – large sélection de vêtements grande taille" onclick="openLightbox(this.src, this.alt)" style="cursor:pointer;" />
-      </div>
-      <div>
-        <p style="font-size:1.08rem;margin-bottom:16px;">Big5XL est née du savoir-faire et de la passion des créateurs de la marque <strong>Newman</strong>, fondée en 1965 dans ce même 6e arrondissement de Paris.</p>
-        <p style="font-size:1.08rem;color:var(--muted);margin-bottom:16px;">Fort de plus de 30 ans d'expérience dans l'habillement masculin grande taille, Big5XL s'est imposé comme <strong>la référence parisienne</strong> pour les hommes qui ne veulent pas sacrifier le style à la taille.</p>
-        <p style="font-size:1.08rem;color:var(--muted);">Notre philosophie ? Que chaque homme, quelle que soit sa carrure, ait accès à des vêtements qui lui ressemblent : beaux, confortables, actuels.</p>
-        <div class="stats-row">
-          <div class="stat-card">
-            <div class="stat-number">+30</div>
-            <div class="stat-label">ans d'expérience</div>
+  <!-- ───────────────────────── RSVP ───────────────────────── -->
+  <section class="rsvp" id="rsvp">
+    <div class="rsvp-card">
+      <h2>Merci de confirmer votre présence</h2>
+      <p class="lede">Répondez-nous avant de poser vos valises — nous avons hâte de vous compter parmi nous !</p>
+
+      <form id="rsvp-form" novalidate>
+        <div class="row-2">
+          <div class="field">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" required />
           </div>
-          <div class="stat-card">
-            <div class="stat-number">10</div>
-            <div class="stat-label">marques sélectionnées</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">10XL</div>
-            <div class="stat-label">taille maximum</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── SERVICES ────────────────────────────────────────────── -->
-<section id="services">
-  <div class="container">
-    <p class="section-label">Ce que nous offrons</p>
-    <h2 class="section-title">Des services<br>à votre mesure</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">🎯</div>
-        <h3>Conseil personnalisé</h3>
-        <p>Franciane et l'équipe vous accompagnent pour trouver la coupe et le style qui vous correspondent parfaitement.</p>
-      </div>
-      <div class="service-card" style="border-top-color:var(--teal);">
-        <div class="service-icon">✂️</div>
-        <h3>Service retouches</h3>
-        <p>Parce qu'une tenue bien ajustée fait toute la différence, nous proposons un service de retouches sur place.</p>
-      </div>
-      <div class="service-card" style="border-top-color:var(--navy);">
-        <div class="service-icon">📦</div>
-        <h3>Large sélection en boutique</h3>
-        <p>Des centaines de références disponibles immédiatement, du XL au 10XL, dans tous les styles : casual, classique, sportswear.</p>
-      </div>
-      <div class="service-card" style="border-top-color:var(--yellow);">
-        <div class="service-icon">🌍</div>
-        <h3>English spoken</h3>
-        <p>We warmly welcome our international customers and are happy to assist you in English throughout your visit.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── GALERIE ─────────────────────────────────────────────── -->
-<section id="boutique">
-  <div class="container">
-    <p class="section-label">La boutique en images</p>
-    <h2 class="section-title">Venez nous rendre visite</h2>
-    <div class="gallery-grid">
-      <div class="gallery-item tall">
-        <img src="images/interieur-3.jpg" alt="Rayon vestes et manteaux grande taille" onclick="openLightbox(this.src, this.alt)" />
-      </div>
-      <div class="gallery-item">
-        <img src="images/interieur-4.jpg" alt="Rayon pantalons et chemises colorées" onclick="openLightbox(this.src, this.alt)" />
-      </div>
-      <div class="gallery-item">
-        <img src="images/interieur-5.jpg" alt="Sélection de vestes jaunes et accessoires" onclick="openLightbox(this.src, this.alt)" />
-      </div>
-      <div class="gallery-item">
-        <img src="images/interieur-6.jpg" alt="Rayon cravates extra-longues et costumes" onclick="openLightbox(this.src, this.alt)" />
-      </div>
-      <div class="gallery-item">
-        <img src="images/facade.jpg" alt="Façade de la boutique Big5XL, rue de l'Ancienne-Comédie" onclick="openLightbox(this.src, this.alt)" />
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── CONTACT ─────────────────────────────────────────────── -->
-<section id="contact">
-  <div class="container">
-    <p class="section-label">Venir nous voir</p>
-    <h2 class="section-title">Infos pratiques</h2>
-    <div class="contact-grid">
-      <div>
-        <div class="info-block">
-          <h3>Adresse</h3>
-          <p>
-            <strong style="color:#fff;font-size:1.1rem;">BIGXXXXXL – Grandes Tailles Homme</strong><br>
-            12 rue de l'Ancienne-Comédie<br>
-            75006 Paris<br>
-            Métro <strong style="color:var(--teal);">Odéon</strong> (lignes 4 &amp; 10)
-          </p>
-        </div>
-
-        <div class="info-block">
-          <h3>Contact</h3>
-          <p>
-            <a href="tel:+33143557754">📞 01 43 55 77 54</a><br>
-            <a href="mailto:newmanbig@orange.fr">✉️ newmanbig@orange.fr</a>
-          </p>
-          <div class="social-links">
-            <a href="https://www.facebook.com/Bigxxxxxl-grandes-tailles-hommes-diffusion-Newman-628813640604944/" target="_blank" rel="noopener" class="social-btn facebook">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-              Facebook
-            </a>
-            <a href="tel:+33143557754" class="social-btn phone">📞 Appeler</a>
-            <a href="mailto:newmanbig@orange.fr" class="social-btn email">✉️ Email</a>
+          <div class="field">
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom" required />
           </div>
         </div>
 
-        <div class="info-block">
-          <h3>Horaires d'ouverture</h3>
-          <table class="hours-table">
-            <tbody>
-              <tr><td>Lundi</td><td>10h00 – 19h30</td></tr>
-              <tr><td>Mardi</td><td>10h00 – 19h30</td></tr>
-              <tr><td>Mercredi</td><td>10h00 – 19h30</td></tr>
-              <tr><td>Jeudi</td><td>10h00 – 19h30</td></tr>
-              <tr><td>Vendredi</td><td>10h00 – 19h30</td></tr>
-              <tr><td>Samedi</td><td>10h00 – 19h30</td></tr>
-              <tr class="closed"><td>Dimanche</td><td>Fermé</td></tr>
-            </tbody>
-          </table>
+        <div class="field">
+          <label for="nombre">Nombre de personnes</label>
+          <input type="number" id="nombre" name="nombre" min="1" step="1" required />
         </div>
-      </div>
 
-      <div>
-        <div class="map-embed">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.1437823088447!2d2.337870576901245!3d48.85174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671f9330da615%3A0x95eb1969a7898a7d!2sBoutique%20BIGXXXXXL%3A%20Grandes%20Tailles%20Homme!5e0!3m2!1sfr!2sfr!4v1700000000000"
-            allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Localisation de la boutique Big5XL sur Google Maps"
-          ></iframe>
-        </div>
-        <p style="margin-top:14px;font-size:0.88rem;color:rgba(255,255,255,0.5);text-align:center;">
-          Métro Odéon · RER B Saint-Michel · Bus 58, 70, 86, 87
-        </p>
-      </div>
+        <fieldset>
+          <legend>Présent·e à la mise des téfilines (samedi 5 juin)</legend>
+          <div class="choice-group">
+            <label><input type="radio" name="tefiline" value="Oui" required /><span>Oui</span></label>
+            <label><input type="radio" name="tefiline" value="Non" /><span>Non</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Présent·e à la fête (jeudi 3 juin)</legend>
+          <div class="choice-group">
+            <label><input type="radio" name="fete" value="Oui" required /><span>Oui</span></label>
+            <label><input type="radio" name="fete" value="Non" /><span>Non</span></label>
+          </div>
+        </fieldset>
+
+        <button type="submit" class="submit-btn">Envoyer ma réponse</button>
+      </form>
+
+      <p class="confirmation" id="confirmation" hidden>
+        Merci ! Votre messagerie va s'ouvrir pour nous transmettre votre réponse.<br/>
+        À très vite pour fêter ça ensemble 🌿
+      </p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ── FOOTER ──────────────────────────────────────────────── -->
-<footer>
-  <p>
-    &copy; 2025 <strong>Big5XL – BIGXXXXXL Spécialiste Grandes Tailles Homme</strong><br>
-    12 rue de l'Ancienne-Comédie · 75006 Paris ·
-    <a href="tel:+33143557754" style="color:rgba(255,255,255,0.6);">01 43 55 77 54</a> ·
-    <a href="mailto:newmanbig@orange.fr" style="color:rgba(255,255,255,0.6);">newmanbig@orange.fr</a>
-  </p>
-  <p style="margin-top:10px;">
-    <a href="https://www.facebook.com/Bigxxxxxl-grandes-tailles-hommes-diffusion-Newman-628813640604944/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.4);">Facebook</a>
-    &nbsp;·&nbsp;
-    <a href="https://www.pagesjaunes.fr/pros/03246937" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.4);">Pages Jaunes</a>
-  </p>
-</footer>
+  <footer>
+    <span class="script">Jules · אברהם מרדכי ארואסה</span>
+    Bar Mitsva — 3 &amp; 5 juin 2027
+  </footer>
 
 <script>
-  // Mobile menu
-  const toggle = document.getElementById('navToggle');
-  const links  = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => links.classList.toggle('open'));
-  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  (function () {
+    var cover = document.getElementById('cover');
+    var envelope = document.getElementById('envelope');
+    var body = document.body;
 
-  // Lightbox
-  function openLightbox(src, alt) {
-    document.getElementById('lightbox-img').src = src;
-    document.getElementById('lightbox-img').alt = alt || '';
-    document.getElementById('lightbox').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+    function openEnvelope() {
+      if (envelope.classList.contains('open')) return;
+      envelope.classList.add('open');
+      setTimeout(function () { cover.classList.add('hidden'); }, 500);
+      setTimeout(function () {
+        body.classList.remove('locked');
+        document.getElementById('invitation').scrollIntoView({ behavior: 'smooth' });
+      }, 650);
+    }
+
+    envelope.addEventListener('click', openEnvelope);
+    envelope.addEventListener('keypress', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') openEnvelope();
+    });
+    envelope.setAttribute('tabindex', '0');
+    envelope.setAttribute('role', 'button');
+    envelope.setAttribute('aria-label', "Ouvrir l'invitation");
+  })();
+
+  (function () {
+    var form = document.getElementById('rsvp-form');
+    var confirmation = document.getElementById('confirmation');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var data = new FormData(form);
+      var nom = (data.get('nom') || '').trim();
+      var prenom = (data.get('prenom') || '').trim();
+      var nombre = (data.get('nombre') || '').trim();
+      var tefiline = data.get('tefiline') || '';
+      var fete = data.get('fete') || '';
+
+      var subject = 'Réponse Bar Mitsva — ' + prenom + ' ' + nom;
+      var body =
+        'Nom : ' + nom + '\n' +
+        'Prénom : ' + prenom + '\n' +
+        'Nombre de personnes : ' + nombre + '\n' +
+        'Présent·e à la mise des téfilines (samedi 5 juin) : ' + tefiline + '\n' +
+        'Présent·e à la fête (jeudi 3 juin) : ' + fete;
+
+      var mailto = 'mailto:larrouasse@aol.com'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(body);
+
+      confirmation.hidden = false;
+      window.location.href = mailto;
+    });
+  })();
 </script>
+
 </body>
 </html>
