@@ -452,6 +452,114 @@
     font-size: 1.6rem;
     margin-bottom: 10px;
   }
+
+  .admin-trigger {
+    display: inline-block;
+    margin-left: 10px;
+    opacity: .28;
+    cursor: pointer;
+    font-size: .8rem;
+    transition: opacity .2s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .admin-trigger:hover, .admin-trigger:focus { opacity: .8; }
+
+  /* ─────────────────── ADMIN OVERLAY ─────────────────── */
+  .admin-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(20, 32, 28, .72);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .admin-overlay[hidden] { display: none; }
+
+  .admin-modal {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    max-height: 84vh;
+    overflow-y: auto;
+    background: var(--cream);
+    border-radius: 18px;
+    padding: clamp(26px, 6vw, 38px);
+    box-shadow: var(--shadow);
+  }
+
+  .admin-close {
+    position: absolute;
+    top: 14px; right: 16px;
+    border: none;
+    background: none;
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--muted);
+    cursor: pointer;
+  }
+
+  .admin-title {
+    font-size: 1.5rem;
+    color: var(--green-dark);
+    margin-bottom: 6px;
+  }
+  .admin-hint {
+    font-family: 'Heebo', sans-serif;
+    font-size: .9rem;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+
+  #admin-code {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1px solid rgba(91,119,104,.35);
+    border-radius: 10px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.08rem;
+    background: #fff;
+    margin-bottom: 14px;
+  }
+  #admin-code:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(91,119,104,.18); }
+
+  .admin-error {
+    margin-top: 12px;
+    font-family: 'Heebo', sans-serif;
+    font-size: .85rem;
+    color: #b14b3c;
+    text-align: center;
+  }
+
+  .admin-list { display: flex; flex-direction: column; gap: 12px; }
+  .admin-entry {
+    border: 1px solid rgba(91,119,104,.2);
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+  .admin-entry .name {
+    font-size: 1.2rem;
+    color: var(--green-dark);
+    margin-bottom: 4px;
+  }
+  .admin-entry .meta {
+    font-family: 'Heebo', sans-serif;
+    font-size: .85rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .admin-entry .meta .yes { color: #3f7a55; font-weight: 600; }
+  .admin-entry .meta .no { color: #b14b3c; font-weight: 600; }
+  .admin-entry .timestamp {
+    font-family: 'Heebo', sans-serif;
+    font-size: .75rem;
+    letter-spacing: .06em;
+    color: var(--sage);
+    margin-top: 6px;
+  }
+
+  .confirmation.error { color: #b14b3c; }
 </style>
 </head>
 <body class="locked">
@@ -584,8 +692,11 @@
       </form>
 
       <p class="confirmation" id="confirmation" hidden>
-        Merci ! Votre messagerie va s'ouvrir pour nous transmettre votre réponse.<br/>
-        À très vite pour fêter ça ensemble 🌿
+        Merci, votre réponse a bien été envoyée ! 🌿<br/>
+        À très vite pour fêter ça ensemble.
+      </p>
+      <p class="confirmation error" id="confirmation-error" hidden>
+        Oups, votre réponse n'a pas pu être envoyée. Réessayez dans un instant.
       </p>
     </div>
   </section>
@@ -593,9 +704,42 @@
   <footer>
     <span class="script">Jules · אברהם מרדכי ארואסה</span>
     Bar Mitsva — 3 &amp; 5 juin 2027
+    <span class="admin-trigger" id="admin-trigger" title="">✉</span>
   </footer>
 
+  <!-- ───────────────────────── ADMIN PANEL (hidden) ───────────────────────── -->
+  <div class="admin-overlay" id="admin-overlay" hidden>
+    <div class="admin-modal">
+      <button class="admin-close" id="admin-close" aria-label="Fermer">&times;</button>
+
+      <div id="admin-gate">
+        <p class="admin-title">Accès privé</p>
+        <p class="admin-hint">Entrez le code secret pour voir qui a répondu.</p>
+        <input type="password" id="admin-code" placeholder="Code secret" autocomplete="off" />
+        <button class="submit-btn" id="admin-unlock">Déverrouiller</button>
+        <p class="admin-error" id="admin-error" hidden>Code incorrect, réessayez.</p>
+      </div>
+
+      <div id="admin-results" hidden>
+        <p class="admin-title">Réponses reçues</p>
+        <p class="admin-hint" id="admin-count"></p>
+        <div class="admin-list" id="admin-list"></div>
+      </div>
+    </div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
+  // Remplis ces deux valeurs avec celles de ton projet Supabase
+  // (Project Settings → API → "Project URL" et "anon public" key).
+  var SUPABASE_URL = 'YOUR_SUPABASE_URL';
+  var SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+  var ADMIN_CODE = 'bar mitsva';
+
+  var supabaseClient = (window.supabase && SUPABASE_URL.indexOf('YOUR_') !== 0)
+    ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+    : null;
+
   (function () {
     var cover = document.getElementById('cover');
     var envelope = document.getElementById('envelope');
@@ -623,31 +767,136 @@
   (function () {
     var form = document.getElementById('rsvp-form');
     var confirmation = document.getElementById('confirmation');
+    var confirmationError = document.getElementById('confirmation-error');
+    var submitBtn = form.querySelector('.submit-btn');
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (!supabaseClient) {
+        confirmationError.hidden = false;
+        confirmation.hidden = true;
+        return;
+      }
+
       var data = new FormData(form);
-      var nom = (data.get('nom') || '').trim();
-      var prenom = (data.get('prenom') || '').trim();
-      var nombre = (data.get('nombre') || '').trim();
-      var tefiline = data.get('tefiline') || '';
-      var fete = data.get('fete') || '';
+      var entry = {
+        nom: (data.get('nom') || '').trim(),
+        prenom: (data.get('prenom') || '').trim(),
+        nombre: parseInt(data.get('nombre'), 10) || 0,
+        tefiline: data.get('tefiline') || '',
+        fete: data.get('fete') || ''
+      };
 
-      var subject = 'Réponse Bar Mitsva — ' + prenom + ' ' + nom;
-      var body =
-        'Nom : ' + nom + '\n' +
-        'Prénom : ' + prenom + '\n' +
-        'Nombre de personnes : ' + nombre + '\n' +
-        'Présent·e à la mise des téfilines (samedi 5 juin) : ' + tefiline + '\n' +
-        'Présent·e à la fête (jeudi 3 juin) : ' + fete;
+      confirmationError.hidden = true;
+      confirmation.hidden = true;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Envoi en cours…';
 
-      var mailto = 'mailto:larrouasse@aol.com'
-        + '?subject=' + encodeURIComponent(subject)
-        + '&body=' + encodeURIComponent(body);
-
-      confirmation.hidden = false;
-      window.location.href = mailto;
+      supabaseClient.from('rsvp_responses').insert([entry]).then(function (res) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Envoyer ma réponse';
+        if (res.error) {
+          confirmationError.hidden = false;
+        } else {
+          confirmation.hidden = false;
+          form.reset();
+        }
+      });
     });
+  })();
+
+  (function () {
+    var trigger = document.getElementById('admin-trigger');
+    var overlay = document.getElementById('admin-overlay');
+    var closeBtn = document.getElementById('admin-close');
+    var gate = document.getElementById('admin-gate');
+    var results = document.getElementById('admin-results');
+    var codeInput = document.getElementById('admin-code');
+    var unlockBtn = document.getElementById('admin-unlock');
+    var errorMsg = document.getElementById('admin-error');
+    var list = document.getElementById('admin-list');
+    var count = document.getElementById('admin-count');
+
+    function closeOverlay() {
+      overlay.hidden = true;
+      gate.hidden = false;
+      results.hidden = true;
+      errorMsg.hidden = true;
+      codeInput.value = '';
+    }
+
+    function renderEntries(rows) {
+      list.innerHTML = '';
+      count.textContent = rows.length + (rows.length > 1 ? ' réponses reçues' : ' réponse reçue');
+      rows.forEach(function (row) {
+        var card = document.createElement('div');
+        card.className = 'admin-entry';
+
+        var date = new Date(row.created_at);
+        var formatted = date.toLocaleString('fr-FR', {
+          day: '2-digit', month: 'long', year: 'numeric',
+          hour: '2-digit', minute: '2-digit'
+        });
+
+        card.innerHTML =
+          '<p class="name">' + escapeHtml(row.prenom) + ' ' + escapeHtml(row.nom) + '</p>' +
+          '<p class="meta">' +
+            'Nombre de personnes : ' + escapeHtml(String(row.nombre)) + '<br/>' +
+            'Téfilines (sam. 5 juin) : <span class="' + (row.tefiline === 'Oui' ? 'yes' : 'no') + '">' + escapeHtml(row.tefiline) + '</span><br/>' +
+            'Fête (jeu. 3 juin) : <span class="' + (row.fete === 'Oui' ? 'yes' : 'no') + '">' + escapeHtml(row.fete) + '</span>' +
+          '</p>' +
+          '<p class="timestamp">Reçu le ' + formatted + '</p>';
+        list.appendChild(card);
+      });
+    }
+
+    function escapeHtml(str) {
+      var div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    function unlock() {
+      var entered = codeInput.value.trim().toLowerCase();
+      if (entered !== ADMIN_CODE) {
+        errorMsg.hidden = false;
+        return;
+      }
+      errorMsg.hidden = true;
+
+      if (!supabaseClient) {
+        list.innerHTML = '<p class="meta">La connexion à la base de données n\'est pas configurée.</p>';
+        gate.hidden = true;
+        results.hidden = false;
+        count.textContent = '';
+        return;
+      }
+
+      unlockBtn.disabled = true;
+      unlockBtn.textContent = 'Chargement…';
+      supabaseClient
+        .from('rsvp_responses')
+        .select('*')
+        .order('created_at', { ascending: false })
+        .then(function (res) {
+          unlockBtn.disabled = false;
+          unlockBtn.textContent = 'Déverrouiller';
+          if (res.error) {
+            errorMsg.textContent = 'Erreur de chargement des réponses.';
+            errorMsg.hidden = false;
+            return;
+          }
+          gate.hidden = true;
+          results.hidden = false;
+          renderEntries(res.data || []);
+        });
+    }
+
+    trigger.addEventListener('click', function () { overlay.hidden = false; codeInput.focus(); });
+    closeBtn.addEventListener('click', closeOverlay);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) closeOverlay(); });
+    unlockBtn.addEventListener('click', unlock);
+    codeInput.addEventListener('keypress', function (e) { if (e.key === 'Enter') unlock(); });
   })();
 </script>
 
