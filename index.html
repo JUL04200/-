@@ -630,7 +630,7 @@
   <!-- ───────────────────────── EVENTS ───────────────────────── -->
   <section class="events">
     <p class="section-kicker">Le programme</p>
-    <h2 class="section-title">Deux moments à partager</h2>
+    <h2 class="section-title">Trois moments à partager</h2>
     <div class="event-grid">
       <div class="event-card">
         <span class="badge">Office</span>
@@ -688,7 +688,15 @@
         </fieldset>
 
         <fieldset>
-          <legend>Présent·e à la fête (jeudi 3 juin)</legend>
+          <legend>Présent·e à la lecture de la paracha (jeudi 3 juin matin)</legend>
+          <div class="choice-group">
+            <label><input type="radio" name="paracha" value="Oui" required /><span>Oui</span></label>
+            <label><input type="radio" name="paracha" value="Non" /><span>Non</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Présent·e à la fête (jeudi 3 juin soir)</legend>
           <div class="choice-group">
             <label><input type="radio" name="fete" value="Oui" required /><span>Oui</span></label>
             <label><input type="radio" name="fete" value="Non" /><span>Non</span></label>
@@ -789,6 +797,7 @@
         prenom: (data.get('prenom') || '').trim(),
         nombre: parseInt(data.get('nombre'), 10) || 0,
         tefiline: data.get('tefiline') || '',
+        paracha: data.get('paracha') || '',
         fete: data.get('fete') || ''
       };
 
@@ -848,7 +857,8 @@
           '<p class="meta">' +
             'Nombre de personnes : ' + escapeHtml(String(row.nombre)) + '<br/>' +
             'Téfilines (sam. 5 juin) : <span class="' + (row.tefiline === 'Oui' ? 'yes' : 'no') + '">' + escapeHtml(row.tefiline) + '</span><br/>' +
-            'Fête (jeu. 3 juin) : <span class="' + (row.fete === 'Oui' ? 'yes' : 'no') + '">' + escapeHtml(row.fete) + '</span>' +
+            'Paracha (jeu. matin) : <span class="' + (row.paracha === 'Oui' ? 'yes' : 'no') + '">' + escapeHtml(row.paracha || '-') + '</span><br/>' +
+            'Fête (jeu. soir) : <span class="' + (row.fete === 'Oui' ? 'yes' : 'no') + '">' + escapeHtml(row.fete) + '</span>' +
           '</p>' +
           '<p class="timestamp">Reçu le ' + formatted + '</p>';
         list.appendChild(card);
