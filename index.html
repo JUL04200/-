@@ -622,8 +622,8 @@
       partage, de tradition et de fête, entouré de ceux qu'il aime.
     </p>
     <p class="hero-dates">
-      <strong>Samedi 5 juin 2027</strong> — Mise des téfilines &nbsp;•&nbsp;
-      <strong>Jeudi 3 juin 2027</strong> — Fête
+      <strong>Jeudi 24 juin 2027</strong> — Mise des téfilines &amp; Fête &nbsp;•&nbsp;
+      <strong>Samedi 26 juin 2027</strong> — Montée à la Torah
     </p>
   </section>
 
@@ -635,22 +635,22 @@
       <div class="event-card">
         <span class="badge">Office</span>
         <h3>Mise des téfilines</h3>
-        <p class="day">Samedi</p>
-        <p class="date">5 juin 2027</p>
-        <p class="note">Informations pratiques (lieu &amp; horaire) à venir.</p>
-      </div>
-      <div class="event-card">
-        <span class="badge">Office</span>
-        <h3>Lecture de la paracha</h3>
         <p class="day">Jeudi matin</p>
-        <p class="date">3 juin 2027</p>
+        <p class="date">24 juin 2027</p>
         <p class="note">Informations pratiques (lieu &amp; horaire) à venir.</p>
       </div>
       <div class="event-card">
         <span class="badge">Célébration</span>
         <h3>La fête</h3>
         <p class="day">Jeudi soir</p>
-        <p class="date">3 juin 2027</p>
+        <p class="date">24 juin 2027</p>
+        <p class="note">Informations pratiques (lieu &amp; horaire) à venir.</p>
+      </div>
+      <div class="event-card">
+        <span class="badge">Office</span>
+        <h3>Montée à la Torah</h3>
+        <p class="day">Samedi matin</p>
+        <p class="date">26 juin 2027</p>
         <p class="note">Informations pratiques (lieu &amp; horaire) à venir.</p>
       </div>
     </div>
@@ -680,7 +680,7 @@
         </div>
 
         <fieldset>
-          <legend>Présent·e à la mise des téfilines (samedi 5 juin)</legend>
+          <legend>Présent·e à la mise des téfilines (jeudi 24 juin matin)</legend>
           <div class="choice-group">
             <label><input type="radio" name="tefiline" value="Oui" required /><span>Oui</span></label>
             <label><input type="radio" name="tefiline" value="Non" /><span>Non</span></label>
@@ -688,18 +688,18 @@
         </fieldset>
 
         <fieldset>
-          <legend>Présent·e à la lecture de la paracha (jeudi 3 juin matin)</legend>
+          <legend>Présent·e à la fête (jeudi 24 juin soir)</legend>
           <div class="choice-group">
-            <label><input type="radio" name="paracha" value="Oui" required /><span>Oui</span></label>
-            <label><input type="radio" name="paracha" value="Non" /><span>Non</span></label>
+            <label><input type="radio" name="fete" value="Oui" required /><span>Oui</span></label>
+            <label><input type="radio" name="fete" value="Non" /><span>Non</span></label>
           </div>
         </fieldset>
 
         <fieldset>
-          <legend>Présent·e à la fête (jeudi 3 juin soir)</legend>
+          <legend>Présent·e à la montée à la Torah (samedi 26 juin matin)</legend>
           <div class="choice-group">
-            <label><input type="radio" name="fete" value="Oui" required /><span>Oui</span></label>
-            <label><input type="radio" name="fete" value="Non" /><span>Non</span></label>
+            <label><input type="radio" name="paracha" value="Oui" required /><span>Oui</span></label>
+            <label><input type="radio" name="paracha" value="Non" /><span>Non</span></label>
           </div>
         </fieldset>
 
@@ -718,7 +718,7 @@
 
   <footer>
     <span class="script">Jules · אברהם מרדכי ארואסה</span>
-    Bar Mitsva — 3 &amp; 5 juin 2027
+    Bar Mitsva — 24 &amp; 26 juin 2027
     <span class="admin-trigger" id="admin-trigger" title="">✉</span>
   </footer>
 
@@ -856,9 +856,9 @@
           '<p class="name">' + escapeHtml(row.prenom) + ' ' + escapeHtml(row.nom) + '</p>' +
           '<p class="meta">' +
             'Nombre de personnes : ' + escapeHtml(String(row.nombre)) + '<br/>' +
-            'Téfilines (sam. 5 juin) : <span class="' + (row.tefiline === 'Oui' ? 'yes' : 'no') + '">' + escapeHtml(row.tefiline) + '</span><br/>' +
-            'Paracha (jeu. matin) : <span class="' + (row.paracha === 'Oui' ? 'yes' : 'no') + '">' + escapeHtml(row.paracha || '-') + '</span><br/>' +
-            'Fête (jeu. soir) : <span class="' + (row.fete === 'Oui' ? 'yes' : 'no') + '">' + escapeHtml(row.fete) + '</span>' +
+            'Téfilines (jeu. 24 matin) : <span class="' + (row.tefiline === 'Oui' ? 'yes' : 'no') + '">' + escapeHtml(row.tefiline) + '</span><br/>' +
+            'Fête (jeu. 24 soir) : <span class="' + (row.fete === 'Oui' ? 'yes' : 'no') + '">' + escapeHtml(row.fete) + '</span><br/>' +
+            'Montée à la Torah (sam. 26 matin) : <span class="' + (row.paracha === 'Oui' ? 'yes' : 'no') + '">' + escapeHtml(row.paracha || '-') + '</span>' +
           '</p>' +
           '<p class="timestamp">Reçu le ' + formatted + '</p>';
         list.appendChild(card);
